@@ -1,0 +1,59 @@
+// -------------------------- //
+//			General
+// -------------------------- //
+
+body {
+	* {
+		@include box-sizing(border-box);
+		margin-bottom: $line_height; // À ENLEVER SI NÉCÉSSAIRE
+	}
+
+	max-width: $width;
+	margin: ($gutter / 2) auto;
+	padding: 0 ($gutter / 2); // À ENLEVER
+	line-height: $line_height;
+
+	font-family: $font_family;
+	font-size: $font_size;
+
+	color: $color_text;
+	background-color: $color_background;
+}
+
+// -------------------------- //
+//		Block elements
+// -------------------------- //
+
+p {
+	margin-bottom: $line_height;
+	& + p { margin-top: -$line_height; }
+}
+div { margin-bottom: 0; }
+img { max-width: 100%; }
+
+// -------------------------- //
+//		Inline elements
+// -------------------------- //
+
+strong, em {
+	font-weight: normal;
+	color: darken($color_text, 30);
+}
+em {
+	font-style: normal;
+	color: darken($color_text, 20);
+}
+a {
+	text-decoration: none;
+	color: darken($color_primary, 20);
+
+	&:hover { color: $color_primary; }
+}
+mark {
+	color: inherit;
+	background-color: lighten($color_background, 1);
+}
+small {
+	color: lighten($color_header, 10);
+	font-size: 0.8em;
+}

@@ -1,0 +1,77 @@
+/* -------------------------- *\
+ *			Button
+\* -------------------------- */
+
+
+// -------------------------- //
+//			Variables
+// -------------------------- //
+
+$color_error: $m_btn_color_error;
+$color_warning: $m_btn_color_warning;
+$color_dark: $m_btn_color_dark;
+
+
+// -------------------------- //
+//			Extends
+// -------------------------- //
+
+%btn {
+	// display: inline-block;
+	min-height: $line_height * 2;
+	padding: 0 $gutter 0 ($gutter / 2);
+
+	font-family: $font_header;
+	font-size: 0.9em;
+
+	// Responsive
+	@media only screen and (max-width: $medium) {
+		width: 100%;
+		// font-size: 1.1em;
+	}
+}
+
+// -------------------------- //
+//			Mixins
+// -------------------------- //
+
+@mixin set-btn($type: default, $color: $color_background, $color_bg: $color_primary) {
+	.btn-#{$type}, .fl-btn-#{$type} {
+		@extend %btn;
+
+		opacity: 0.9;
+
+		color: $color;
+		background-color: $color_bg;
+		border-left: ($gutter / 2) solid darken($color_bg, 3);
+
+		@include box-shadow(darken($color_bg, 3) 0px -3px 0 inset);
+	}
+	.btn-#{$type}:hover {
+		opacity: 1;
+
+		color: lighten($color, 15);
+		background-color: darken($color_bg, 7);
+		border-left: ($gutter / 2) solid darken($color_bg, 10);
+
+		@include box-shadow(darken($color_bg, 10) 0px -3px 0 inset, darken($color, 5) 0px 1px 1px);
+		@include transition-duration(0.2s);
+	}
+	.btn-#{$type}:active {
+		opacity: 1;
+
+		color: lighten($color, 35);
+		background-color: darken($color_bg, 27);
+		border-left: ($gutter / 2) solid darken($color_bg, 30);
+
+		@include box-shadow(darken($color_bg, 30) 0px -3px 0 inset, darken($color, 25) 0px 1px 1px);
+	}
+}
+
+// -------------------------- //
+//			Rules
+// -------------------------- //
+@include set-btn();
+@include set-btn(error, $color_background, $color_error);
+@include set-btn(warning, $color_background, $color_warning);
+@include set-btn(dark, $color_background, $color_dark);

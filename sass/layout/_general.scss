@@ -1,0 +1,21 @@
+// -------------------------- //
+//			General
+// -------------------------- //
+
+.full { width: 100%; }
+
+// -------------------------- //
+//		Block elements
+// -------------------------- //
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// -------------------------- //
+//		Inline elements
+// -------------------------- //
+
+.content-center { text-align: center; }

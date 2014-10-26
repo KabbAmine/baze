@@ -1,0 +1,15 @@
+// -------------------------- //
+//			Headers
+// -------------------------- //
+
+$c_sub: $color_header;
+$size_sub: 0;
+@for $h from 1 through 6 {
+	h#{$h} {
+		font-family: $font_header;
+		font-size: 1.5em - $size_sub;
+		color: $c_sub;
+		$size_sub: $size_sub + 0.125;
+		$c_sub: lighten($c_sub, 5);
+	}
+}

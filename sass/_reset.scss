@@ -1,0 +1,29 @@
+/* -------------------------- *\
+ *		Simple CSS resetter
+\* -------------------------- */
+
+body, header, footer,
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl, li, dt, dd,
+div, img, p, blockquote, pre,
+strong, em, a, small, mark, code,
+button {
+	margin: 0;
+	padding: 0;
+
+	font-family: inherit;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	text-decoration: none;
+	text-transform: none;
+
+	color: inherit;
+	background-color: transparent;
+	border: none;
+}
+ul, ol {
+	list-style-type: none;
+	list-style-position: inside;
+}

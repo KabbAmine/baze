@@ -1,0 +1,49 @@
+/* -------------------------- *\
+ *			Box
+\* -------------------------- */
+
+
+// -------------------------- //
+//			Variables
+// -------------------------- //
+
+$gutter: $l_box_gutter;
+$color_border_box: $l_box_border_box;
+$color_border_title: $l_box_border_title;
+
+
+// -------------------------- //
+//		Mixins & extends
+// -------------------------- //
+
+%box {
+	margin-bottom: $line_height;
+	padding: $line_height ($gutter / 2) 0 ($gutter / 2);
+}
+@mixin set-box($type: container, $color_border_title: $color_border_title, $perc_dark_bg_color: 0, $color_border_box: $color_border_box) {
+	.box-#{$type} {
+		border: 1px ridge darken($color_border_box, 5);
+		background-color: darken($color_border_box, $perc_dark_bg_color);
+
+		@extend %box;
+		@include box-shadow(darken($color_border_box, 7) -1px -1px 0 inset);
+
+		.box-title {
+			padding: ($line_height / 4) 0 ($line_height / 4) ($gutter / 2);
+			border-left: ($gutter/2) solid $color_border_title;
+			border-bottom: 1px solid $color_border_title;
+
+			& > small {
+				padding-left: $gutter / 2;
+				text-align: right;
+			}
+		}
+	}
+}
+
+// -------------------------- //
+//			Rules
+// -------------------------- //
+
+@include set-box();
+@include set-box(info, #497fd2, 5);		// Temporary

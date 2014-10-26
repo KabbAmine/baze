@@ -1,0 +1,84 @@
+/* -------------------------- *\
+ *			Grid
+ \* -------------------------- */
+
+
+// -------------------------- //
+//			Variables
+// -------------------------- //
+
+$gutter: $l_grid_gutter!default;
+$number_columns: $l_grid_number_columns!default;
+
+$medium: $l_medium!default;
+$large: $l_large!default;
+
+// -------------------------- //
+//		Extends
+// -------------------------- //
+
+%col-properties {
+	min-height: 1px;
+	float: left;
+	position: relative;
+
+	// border: 1px solid #ff0000;
+}
+
+// -------------------------- //
+//			Mixins
+// -------------------------- //
+
+@mixin responsive-columns($type) {
+	@for $cl from 1 through $number_columns {
+		.col-#{$type}-#{$cl} {
+			width: ($cl / $number_columns) * 100%;
+			padding: 0 ($gutter / 2);
+		}
+		.ft-col-#{$type}-#{$cl} {
+			width: ($cl / $number_columns) * 100%;
+			padding: 0 ($gutter / 2) 0 0;
+		}
+		.lt-col-#{$type}-#{$cl} {
+			width: ($cl / $number_columns) * 100%;
+			padding: 0 0 0 ($gutter / 2);
+		}
+		.fl-col-#{$type}-#{$cl} {
+			width: ($cl / $number_columns) * 100%;
+			padding: 0;
+		}
+	}
+	.col-#{$type}-center {
+		margin-right: auto;
+		margin-left: auto;
+		float: none;
+	}
+}
+
+@mixin set-col-properties($type, $number_columns: $number_columns) {
+	@for $cl from 1 through $number_columns {
+		.#{$type}-s-#{$cl} { @extend %col-properties; }
+		.#{$type}-l-#{$cl} { @extend %col-properties; }
+		.#{$type}-m-#{$cl} { @extend %col-properties; }
+	}
+}
+
+// -------------------------- //
+//			Grid
+// -------------------------- //
+
+.row {
+	padding: 0 ($gutter / -2);
+	clear: both;
+
+	@include clearfix();
+}
+
+@include set-col-properties('col');
+@include set-col-properties('ft-col');
+@include set-col-properties('lt-col');
+@include set-col-properties('fl-col');
+
+@include responsive-columns('s');
+@media only screen and (min-width: $medium) { @include responsive-columns('m'); }
+@media only screen and (min-width: $large) { @include responsive-columns('l'); }

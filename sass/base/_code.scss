@@ -1,0 +1,83 @@
+/* -------------------------- *\
+ *			Code
+\* -------------------------- */
+
+// -------------------------- //
+//			Extends
+// -------------------------- //
+%code-font {
+	font-family: $font_code;
+	font-size: 1em;
+}
+
+// -------------------------- //
+//			Rules
+// -------------------------- //
+code {
+	margin: 0 0px;
+	padding: 0 3px;
+
+	color: darken($color_text, 10);
+	background-color: lighten($color_background, 4);
+
+	@include box-shadow(darken($color_background, 7) 0px -1px 1px inset);
+	@extend %code-font;
+}
+pre {
+	position: relative;
+	overflow: auto;
+	border-left: ($gutter/2) solid $color_primary;
+	z-index: 50;
+
+	background-color: darken($color_text, 30);
+
+	@include box-shadow(darken($color_background, 7) -1px 1px 1px inset);
+
+	& > span {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding: 0 ($gutter / 2);
+		z-index: 99;
+		cursor: default;
+
+		font-family: $font_header;
+		font-size: 0.9em;
+
+		opacity: 0.5;
+	}
+
+	& > code {
+		padding: $line_height ($gutter/2);
+		display: block;
+		overflow: auto;
+		z-index: 1;
+
+		color: $color_background;
+		background-color: darken($color_text, 30);
+
+		@include box-shadow(darken($color_text, 35) -1px -1px 1px inset);
+		@extend %code-font;
+	}
+	strong {
+		color: $color_primary;
+	}
+}
+
+// -------------------------- //
+//			Responsive
+// -------------------------- //
+@media only screen and (min-width: $l_medium) {
+	pre {
+		& > span {
+			opacity: 1;
+			color: darken($color_text, 30);
+			background-color: $color_primary;
+
+			@include box-shadow(darken($color_text, 35) -1px 1px 1px);
+			@include transition-duration(0.7s);
+		}
+	}
+
+}

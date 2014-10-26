@@ -1,0 +1,63 @@
+// -------------------------- //
+//			Sizes
+// -------------------------- //
+
+$width: 960px!default;
+$gutter: 20px!default;
+
+// -------------------------- //
+//			Fonts
+// -------------------------- //
+
+@font-face {
+	font-family: 'Lato';
+	src: url('font/Lato-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Bitter';
+	src: url('font/Bitter-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+$font_family: 'Lato', sans-serif !default;
+$font_header: 'Bitter', serif !default;
+$font_code: 'Freemono', 'monospace', serif !default;
+$font_size: 16px!default;
+$line_height: 1.4 * $font_size !default;
+
+// -------------------------- //
+//			Colors
+// -------------------------- //
+
+$color_primary: #d2a749!default;
+$color_text: #8a8a8a!default;
+$color_header: darken($color_text, 30);
+$color_background: #f3f3f3!default;
+
+// -------------------------- //
+//			Layout
+// -------------------------- //
+
+// Grid
+$l_grid_gutter: $gutter;
+$l_grid_number_columns: 12!default;
+
+$l_medium: 640px!default;
+$l_large: 1040px!default;
+
+// Box
+$l_box_gutter: $gutter;
+$l_box_border_box: $color_background!default;
+$l_box_border_title: $color_primary!default;
+
+// -------------------------- //
+//			Modules
+// -------------------------- //
+
+// Buttons.
+$m_btn_color_error: #d16249!default;
+$m_btn_color_warning: #b8d149!default;
+$m_btn_color_dark: $color_header!default;
+

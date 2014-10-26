@@ -1,0 +1,12 @@
+/* -------------------------- *\
+ *		For debug purpose
+\* -------------------------- */
+
+body{
+	// Grille en background
+	background-image: linear-gradient(to bottom, $color_background 95%, #7d7171 1%);
+	background-size: 100% $line_height;
+	background-position: 0 17px;
+
+	border: 1px solid #0057ff;
+}

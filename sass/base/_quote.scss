@@ -1,0 +1,29 @@
+// -------------------------- //
+//		Blockquote & quote
+// -------------------------- //
+
+// Extends.
+%quote-properties {
+	font-size: 0.9em;
+	font-family: $font_header;
+
+	color: darken($color_text, 10);
+}
+
+// Rules
+q {
+	@extend %quote-properties;
+
+	&:before { content: open-quote; }
+	&:after { content: close-quote; }
+}
+blockquote {
+	padding: $line_height 0 $line_height $gutter;
+	border-left: ($gutter/2) solid $color_primary;
+	background-color: lighten($color_background, 1);
+
+	@include box-shadow(lighten($color_text, 30) 1px 0 1px inset);
+	@extend %quote-properties;
+
+	& > p { margin-bottom: 0; }
+}
