@@ -47,7 +47,10 @@ a {
 	text-decoration: none;
 	color: darken($color_primary, 20);
 
-	&:hover { color: $color_primary; }
+	&:hover {
+		color: $color_primary;
+		@include transition-duration(0.5s);
+	}
 }
 mark {
 	color: inherit;
