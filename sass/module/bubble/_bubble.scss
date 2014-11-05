@@ -27,17 +27,21 @@ $m_bubble_slider_margin: 99%!default;
 // -------------------------- //
 
 %bubble-span {
-	width: 50%;
-	height: 100%;
-	display: inline-block;
-	float: right;
-	margin-bottom: 0;
-	padding-right: $m_bubble_gutter / 2;
-	opacity: 0.5;
+	display: none;
 
-	font-family: inherit;
-	font-size: 0.8em;
-	text-align: right;
+	@media only screen and (min-width: $m_medium) {
+		width: 50%;
+		height: 100%;
+		display: inline-block;
+		float: right;
+		margin-bottom: 0;
+		padding-right: $m_bubble_gutter / 2;
+		opacity: 0.5;
+
+		font-family: inherit;
+		font-size: 0.8em;
+		text-align: right;
+	}
 }
 
 %bubble-lift-ul {
