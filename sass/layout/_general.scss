@@ -3,6 +3,7 @@
 // -------------------------- //
 
 .full { width: 100%; }
+.clear { clear: both; }
 
 // -------------------------- //
 //		Block elements
@@ -13,6 +14,11 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+.left {
+	float: left;
+	margin-right: $gutter / 2;
+}
+.right { float: right; }
 
 // -------------------------- //
 //		Inline elements

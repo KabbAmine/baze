@@ -7,11 +7,11 @@
 //			Variables
 // -------------------------- //
 
-$gutter: $l_grid_gutter!default;
-$number_columns: $l_grid_number_columns!default;
+$l_grid_gutter: $gutter!default;
+$l_grid_number_columns: 12!default;
 
-$medium: $l_medium!default;
-$large: $l_large!default;
+$l_medium: 640px!default;
+$l_large: 1040px!default;
 
 // -------------------------- //
 //		Extends
@@ -21,8 +21,6 @@ $large: $l_large!default;
 	min-height: 1px;
 	float: left;
 	position: relative;
-
-	// border: 1px solid #ff0000;
 }
 
 // -------------------------- //
@@ -30,21 +28,21 @@ $large: $l_large!default;
 // -------------------------- //
 
 @mixin responsive-columns($type) {
-	@for $cl from 1 through $number_columns {
+	@for $cl from 1 through $l_grid_number_columns {
 		.col-#{$type}-#{$cl} {
-			width: ($cl / $number_columns) * 100%;
-			padding: 0 ($gutter / 2);
+			width: ($cl / $l_grid_number_columns) * 100%;
+			padding: 0 ($l_grid_gutter / 2);
 		}
 		.ft-col-#{$type}-#{$cl} {
-			width: ($cl / $number_columns) * 100%;
-			padding: 0 ($gutter / 2) 0 0;
+			width: ($cl / $l_grid_number_columns) * 100%;
+			padding: 0 ($l_grid_gutter / 2) 0 0;
 		}
 		.lt-col-#{$type}-#{$cl} {
-			width: ($cl / $number_columns) * 100%;
-			padding: 0 0 0 ($gutter / 2);
+			width: ($cl / $l_grid_number_columns) * 100%;
+			padding: 0 0 0 ($l_grid_gutter / 2);
 		}
 		.fl-col-#{$type}-#{$cl} {
-			width: ($cl / $number_columns) * 100%;
+			width: ($cl / $l_grid_number_columns) * 100%;
 			padding: 0;
 		}
 	}
@@ -55,8 +53,8 @@ $large: $l_large!default;
 	}
 }
 
-@mixin set-col-properties($type, $number_columns: $number_columns) {
-	@for $cl from 1 through $number_columns {
+@mixin set-col-properties($type, $l_grid_number_columns: $l_grid_number_columns) {
+	@for $cl from 1 through $l_grid_number_columns {
 		.#{$type}-s-#{$cl} { @extend %col-properties; }
 		.#{$type}-l-#{$cl} { @extend %col-properties; }
 		.#{$type}-m-#{$cl} { @extend %col-properties; }
@@ -68,7 +66,7 @@ $large: $l_large!default;
 // -------------------------- //
 
 .row {
-	padding: 0 ($gutter / -2);
+	padding: 0 ($l_grid_gutter / -2);
 	clear: both;
 
 	@include clearfix();
@@ -80,5 +78,5 @@ $large: $l_large!default;
 @include set-col-properties('fl-col');
 
 @include responsive-columns('s');
-@media only screen and (min-width: $medium) { @include responsive-columns('m'); }
-@media only screen and (min-width: $large) { @include responsive-columns('l'); }
+@media only screen and (min-width: $l_medium) { @include responsive-columns('m'); }
+@media only screen and (min-width: $l_large) { @include responsive-columns('l'); }
