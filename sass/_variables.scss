@@ -9,18 +9,8 @@ $gutter: 20px!default;
 //			Fonts
 // -------------------------- //
 
-@font-face {
-	font-family: 'Lato';
-	src: url('font/Lato-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Bitter';
-	src: url('font/Bitter-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
+@import url(http://fonts.googleapis.com/css?family=Lato|Bitter);
+
 $font_family: 'Lato', sans-serif !default;
 $font_header: 'Bitter', serif !default;
 $font_code: 'Freemono', 'monospace', serif !default;
@@ -31,24 +21,26 @@ $line_height: 1.4 * $font_size !default;
 //			Colors
 // -------------------------- //
 
-$color_primary: #d2a749!default;
+$color_primary: #d9a637!default;
 $color_text: #8a8a8a!default;
-$color_header: darken($color_text, 30);
+$color_header: darken($color_text, 30) !default;
 $color_background: #f3f3f3!default;
 
 // -------------------------- //
 //			Layout
 // -------------------------- //
 
-// Grid
-$l_grid_gutter: $gutter;
-$l_grid_number_columns: 12!default;
-
 $l_medium: 640px!default;
 $l_large: 1040px!default;
 
-// Box
-$l_box_gutter: $gutter;
+// Grid ----- OK
+$l_grid_gutter: $gutter;
+$l_grid_number_columns: 12!default;
+
+// Box ----- OK
+$l_box_gutter: $gutter!default;
+$l_box_line_height: $line_height!default;
+
 $l_box_border_box: $color_background!default;
 $l_box_border_title: $color_primary!default;
 
@@ -56,8 +48,30 @@ $l_box_border_title: $color_primary!default;
 //			Modules
 // -------------------------- //
 
-// Buttons.
+$m_medium: $l_medium!default;
+$m_large: $l_large!default;
+
+// Buttons ----- OK
+$m_btn_line_height: $line_height!default;
+$m_btn_gutter: $gutter!default;
+
+$m_btn_font: $font_header!default;
+
+$m_btn_color: $color_background!default;
+$m_btn_color_background: $color_primary!default;
+
 $m_btn_color_error: #d16249!default;
 $m_btn_color_warning: #b8d149!default;
 $m_btn_color_dark: $color_header!default;
 
+// Bubble ----- OK
+$m_bubble_gutter: $gutter!default;
+
+$m_bubble_color: $color_primary!default;
+$m_bubble_color_background: $color_header!default;
+$m_bubble_font: $font_header!default;
+
+$m_bubble_width: 200px!default;
+
+$m_bubble_slider_height: 3!default;
+$m_bubble_slider_margin: 99%!default;
