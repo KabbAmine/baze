@@ -1022,16 +1022,19 @@ pre {
  *			Bubble
 \* -------------------------- */
 ul.bubble-lift li > p:first-of-type > span, ul.bubble-slider li > dl dt > span, ul.bubble-slider2 li > dl dt > span {
-  width: 50%;
-  height: 100%;
-  display: inline-block;
-  float: right;
-  margin-bottom: 0;
-  padding-right: 10px;
-  opacity: 0.5;
-  font-family: inherit;
-  font-size: 0.8em;
-  text-align: right; }
+  display: none; }
+  @media only screen and (min-width: 640px) {
+    ul.bubble-lift li > p:first-of-type > span, ul.bubble-slider li > dl dt > span, ul.bubble-slider2 li > dl dt > span {
+      width: 50%;
+      height: 100%;
+      display: inline-block;
+      float: right;
+      margin-bottom: 0;
+      padding-right: 10px;
+      opacity: 0.5;
+      font-family: inherit;
+      font-size: 0.8em;
+      text-align: right; } }
 
 ul.bubble-lift {
   width: 100%;
