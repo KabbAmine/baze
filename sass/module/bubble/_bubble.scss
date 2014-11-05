@@ -1,0 +1,303 @@
+/* -------------------------- *\
+ *			Bubble
+\* -------------------------- */
+
+// -------------------------- //
+//			Variables
+// -------------------------- //
+
+$m_medium: $m_medium!default;
+$m_large: $m_large!default;
+
+$m_bubble_gutter: $gutter!default;
+$m_bubble_line_height: $line_height!default;
+
+$m_bubble_font: $font_header!default;
+
+$m_bubble_color: $color_primary!default;
+$m_bubble_color_background: $color_header!default;
+
+$m_bubble_img_width: 200px!default;
+
+$m_bubble_slider_height: 3!default;
+$m_bubble_slider_margin: 99%!default;
+
+// -------------------------- //
+//			Extends
+// -------------------------- //
+
+%bubble-span {
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	float: right;
+	margin-bottom: 0;
+	padding-right: $m_bubble_gutter / 2;
+	opacity: 0.5;
+
+	font-family: inherit;
+	font-size: 0.8em;
+	text-align: right;
+}
+
+%bubble-lift-ul {
+	width: 100%;
+
+	list-style-type: none;
+
+	@media only screen and (min-width: $m_medium) {
+		overflow: auto;
+	}
+}
+%bubble-lift-li {
+	margin-bottom: $m_bubble_line_height;
+
+	@media only screen and (min-width: $m_medium) {
+		margin-bottom: 0;
+		overflow: hidden;
+	}
+}
+%bubble-lift-div {
+	padding: $m_bubble_line_height ($m_bubble_gutter / 2);
+
+	@media only screen and (min-width: $m_medium) {
+		display: none;
+	}
+}
+%bubble-lift-img {
+	@media only screen and (max-width: $m_medium) {
+		float: none;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+%bubble-slider-ul {
+	width: 100%;
+	list-style-type: none;
+
+	@media only screen and (min-width: $m_medium) {
+		overflow: auto;
+	}
+}
+%bubble-slider-li {
+	& * { margin-bottom: 0; }
+
+	@media only screen and (min-width: $m_medium) {
+		overflow: hidden;
+	}
+}
+
+%bubble-img-ul {
+	display: inline-block;
+	overflow: auto;
+	list-style-type: none;
+}
+%bubble-img-li {
+	overflow: hidden;
+	float: left;
+}
+%bubble-p {
+	opacity: 0.7;
+
+	font-family: $m_bubble_font;
+	font-size: 0.8em;
+	text-align: center;
+	font-weight: bold;
+}
+
+// -------------------------- //
+//			Mixins
+// -------------------------- //
+
+@mixin SetBubbleLift($slider_height: $m_bubble_slider_height, $slider_margin: $m_bubble_slider_margin, $color: $m_bubble_color, $color_background: $m_bubble_color_background) {
+
+	ul.bubble-lift  {
+		margin-bottom: $m_bubble_line_height;
+
+		@extend %bubble-lift-ul;
+
+		li {
+
+			@extend %bubble-lift-li;
+
+			@media only screen and (min-width: $m_medium) {
+				border-bottom: 1px solid darken($color_background, 3);
+			}
+
+			& > p:first-of-type {
+				width: 100%;
+				clear: both;
+				height: $m_bubble_line_height * $slider_height;
+				margin-bottom: 0;
+				padding-left: $m_bubble_gutter / 2;
+				line-height: $m_bubble_line_height * $slider_height;
+
+				font-family: $m_bubble_font;
+
+				color: $color;
+				background-color: $color_background;
+
+				& > span {
+					color: lighten($color, 35);
+					@extend %bubble-span;
+				}
+			}
+			& > div {
+
+				* { color: $color_background; }
+
+				background-color: $color;
+
+				@extend %bubble-lift-div;
+
+				& > img {
+					@extend %bubble-lift-img;
+				}
+				& > p:last-of-type {
+					margin-bottom: 0;
+					width: 100%;
+					height: 100%;
+				}
+
+				@media only screen and (min-width: $m_medium) {
+					margin-top: $m_bubble_line_height * -$slider_height;
+				}
+			}
+
+			@media only screen and (min-width: $m_medium) {
+				&:hover {
+					@include transition-duration(2s);
+					& > div {
+						display: block;
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin SetBubbleSlider($type: '', $slider_height: $m_bubble_slider_height, $slider_margin: $m_bubble_slider_margin, $color: $m_bubble_color, $color_background: $m_bubble_color_background) {
+
+	ul.bubble-slider#{$type}  {
+		margin-bottom: $m_bubble_line_height;
+
+		@extend %bubble-slider-ul;
+
+		li {
+			margin-bottom: $m_bubble_line_height;
+			line-height: $m_bubble_line_height * $slider_height;
+
+			@extend %bubble-slider-li;
+
+			@media only screen and (min-width: $m_medium) {
+				margin-bottom: 0;
+				height: $m_bubble_line_height * $slider_height;
+				border-bottom: 1px solid darken($color_background, 3);
+			}
+
+			& > dl {
+				dt {
+					width: 100%;
+					padding-left: $m_bubble_gutter / 2;
+
+					font-family: $m_bubble_font;
+
+					color: $color;
+					background-color: $color_background;
+
+					& > span {
+						margin-right: 100% - $slider_margin;
+						color: lighten($color, 35);
+
+						@extend %bubble-span;
+					}
+				}
+				dd {
+					width: 100%;
+					padding-left: $m_bubble_gutter / 2;
+					padding-top: $m_bubble_line_height;
+					padding-bottom: $m_bubble_line_height;
+					line-height: $m_bubble_line_height;
+
+					background-color: $color;
+
+					@include box-shadow(darken($color_background, 5) -1px 0px 1px);
+
+					@media only screen and (min-width: $m_medium) {
+						margin-left: $slider_margin;
+						margin-top: $m_bubble_line_height * -$slider_height;
+						float: left;
+					}
+				}
+				a { color: inherit; }
+				a:hover { color: lighten($color_background, 15); }
+			}
+
+			@media only screen and (min-width: $m_medium) {
+				&:hover {
+					& * { @include transition-duration(0.7s);}
+					dl > dt { margin-left: -#{$slider_margin}; }
+					dl > dd {
+						margin-left: 100% - $slider_margin;
+						color: $color_background;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin SetBubbleImg($type: 'm', $img_width: $m_bubble_img_width, $color: $m_bubble_color, $color_background: $m_bubble_color_background) {
+
+	ul.bubble-img-#{$type} {
+		width: $img_width;
+		height: $img_width;
+
+		@extend %bubble-img-ul;
+
+		li {
+			width: 100%;
+			height: 100%;
+			margin-bottom: 0;
+
+			@extend %bubble-img-li;
+
+			* { margin-bottom: 0; }
+
+
+			p {
+				height: 25%;
+				line-height: $img_width / 4;
+
+				color: $color;
+				background-color: $color_background;
+
+				@include transition(margin-top 0.3s ease-out);
+				@include box-shadow(darken($color_background, 3) 0px -1px 1px);
+
+				@extend %bubble-p;
+			}
+
+			&:hover p { margin-top: -25%; }
+		}
+	}
+}
+
+// -------------------------- //
+//			Rules
+// -------------------------- //
+
+@include SetBubbleLift;
+
+@include SetBubbleSlider();
+@include SetBubbleSlider("2", $m_bubble_slider_height, $m_bubble_slider_margin, $m_bubble_color_background, $m_bubble_color);
+
+@include SetBubbleImg();
+@include SetBubbleImg("m2", $m_bubble_img_width, $m_bubble_color_background, $m_bubble_color);
+@include SetBubbleImg("s", ($m_bubble_img_width / 2));
+@include SetBubbleImg("s2", ($m_bubble_img_width / 2), $m_bubble_color_background, $m_bubble_color);
+@include SetBubbleImg("l", 100%);
+@include SetBubbleImg("l2", 100%, $m_bubble_color_background, $m_bubble_color);
