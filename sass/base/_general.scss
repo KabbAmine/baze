@@ -1,4 +1,15 @@
 // -------------------------- //
+//			Mixins
+// -------------------------- //
+@mixin set-element-by-theme($element, $value_light, $value_dark) {
+	@if $theme == 'light' {
+		#{$element}: $value_light;
+	} @else {
+		#{$element}: $value_dark;
+	}
+}
+
+// -------------------------- //
 //			General
 // -------------------------- //
 
@@ -8,7 +19,7 @@ body {
 		margin-bottom: $line_height; // À ENLEVER SI NÉCÉSSAIRE
 	}
 
-	max-width: $width;
+	// max-width: $width;
 	margin: ($gutter / 2) auto;
 	padding: 0 ($gutter / 2); // À ENLEVER
 	line-height: $line_height;
@@ -26,7 +37,7 @@ body {
 
 p {
 	margin-bottom: $line_height;
-	& + p { margin-top: -$line_height; }
+	// & + p { margin-top: -$line_height; }
 }
 div { margin-bottom: 0; }
 img { max-width: 100%; }
@@ -37,15 +48,14 @@ img { max-width: 100%; }
 
 strong, em {
 	font-weight: normal;
-	color: darken($color_text, 30);
+	@include set-element-by-theme('color', darken($color_text, 30), lighten($color_text, 30));
 }
 em {
 	font-style: normal;
-	color: darken($color_text, 20);
 }
 a {
 	text-decoration: none;
-	color: darken($color_primary, 20);
+	@include set-element-by-theme('color', darken($color_primary, 30), lighten($color_primary, 30));
 
 	&:hover {
 		color: $color_primary;
@@ -54,9 +64,10 @@ a {
 }
 mark {
 	color: inherit;
-	background-color: lighten($color_background, 1);
+	@include set-element-by-theme('background-color', lighten($color_background, 20), lighten($color_background, 20));
 }
 small {
 	color: lighten($color_header, 10);
+	@include set-element-by-theme('color', lighten($color_text, 10), darken($color_text, 10));
 	font-size: 0.8em;
 }

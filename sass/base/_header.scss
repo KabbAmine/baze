@@ -10,6 +10,10 @@ $size_sub: 0;
 		font-size: 1.5em - $size_sub;
 		color: $c_sub;
 		$size_sub: $size_sub + 0.125;
-		$c_sub: lighten($c_sub, 5);
+		@if $theme == 'light' {
+			$c_sub: lighten($c_sub, 5);
+		} @else {
+			$c_sub: darken($c_sub, 5);
+		}
 	}
 }
