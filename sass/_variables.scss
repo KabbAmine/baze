@@ -9,7 +9,7 @@ $gutter: 20px!default;
 //			Fonts
 // -------------------------- //
 
-@import url(http://fonts.googleapis.com/css?family=Lato|Bitter);
+// @import url(http://fonts.googleapis.com/css?family=Lato|Bitter);
 
 $font_family: 'Lato', sans-serif !default;
 $font_header: 'Bitter', serif !default;
@@ -20,6 +20,8 @@ $line_height: 1.4 * $font_size !default;
 // -------------------------- //
 //			Colors
 // -------------------------- //
+
+$theme: 'light'!default;		// Or dark
 
 $color_primary: #d9a637!default;
 $color_text: #8a8a8a!default;
@@ -57,12 +59,10 @@ $m_btn_gutter: $gutter!default;
 
 $m_btn_font: $font_header!default;
 
-$m_btn_color: $color_background!default;
-$m_btn_color_background: $color_primary!default;
-
-$m_btn_color_error: #d16249!default;
-$m_btn_color_warning: #b8d149!default;
-$m_btn_color_dark: $color_header!default;
+$m_btn_color: $color_primary!default;
+$m_btn_color_error: #e14e3f!default;
+$m_btn_color_warning: #ebbf0f!default;
+$m_btn_color_dark: #31414f!default;
 
 // Bubble ----- OK
 $m_bubble_gutter: $gutter!default;
@@ -75,3 +75,17 @@ $m_bubble_width: 200px!default;
 
 $m_bubble_slider_height: 3!default;
 $m_bubble_slider_margin: 99%!default;
+
+// Alert ----- OK
+$m_alert_gutter: $gutter!default;
+$m_alert_line_height: $line_height!default;
+
+$m_alert_font: $font_family!default;
+$m_alert_font_awesome: 'true'!default;
+
+$m_alert_color: $color_primary!default;
+$m_alert_success_color: #399adc!default;
+$m_alert_error_color: #e14e3f!default;
+$m_alert_warning_color: #ebbf0f!default;
+$m_alert_question_color: #33cd74!default;
+
