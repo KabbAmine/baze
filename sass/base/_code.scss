@@ -3,6 +3,16 @@
 \* -------------------------- */
 
 // -------------------------- //
+//			variables
+// -------------------------- //
+$color_code: darken($color_text, 10);
+$color_code_background: lighten($color_background, 4);
+@if $theme == 'dark' {
+	$color_code: lighten($color_text, 10);
+	$color_code_background: darken($color_background, 4);
+}
+
+// -------------------------- //
 //			Extends
 // -------------------------- //
 %code-font {
@@ -17,10 +27,10 @@ code {
 	margin: 0 0px;
 	padding: 0 3px;
 
-	color: darken($color_text, 10);
-	background-color: lighten($color_background, 4);
+	color: $color_code;
+	background-color: $color_code_background;
 
-	@include box-shadow(darken($color_background, 7) 0px -1px 1px inset);
+	@include box-shadow(darken($color_code_background, 5) 0px -1px 1px inset);
 	@extend %code-font;
 }
 pre {
@@ -29,9 +39,7 @@ pre {
 	border-left: ($gutter/2) solid $color_primary;
 	z-index: 50;
 
-	background-color: darken($color_text, 30);
-
-	@include box-shadow(darken($color_background, 7) -1px 1px 1px inset);
+	background-color: darken($color_code, 20);
 
 	& > span {
 		display: block;
@@ -54,10 +62,9 @@ pre {
 		overflow: auto;
 		z-index: 1;
 
-		color: $color_background;
-		background-color: darken($color_text, 30);
+		color: $color_code;
+		background-color: $color_code_background;
 
-		@include box-shadow(darken($color_text, 35) -1px -1px 1px inset);
 		@extend %code-font;
 	}
 	strong {
@@ -72,10 +79,10 @@ pre {
 	pre {
 		& > span {
 			opacity: 1;
-			color: darken($color_text, 30);
+			color: darken($color_text, 35);
 			background-color: $color_primary;
 
-			@include box-shadow(darken($color_text, 35) -1px 1px 1px);
+			@include box-shadow(darken($color_primary, 10) -1px 1px 1px inset);
 			@include transition-duration(0.7s);
 		}
 	}
