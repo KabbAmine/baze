@@ -1,0 +1,46 @@
+/* -------------------------- *\
+ *			Tables
+\* -------------------------- */
+
+// -------------------------- //
+//			Variables
+// -------------------------- //
+$color_background: darken($color_background, 3);
+
+// -------------------------- //
+//			Extends
+// -------------------------- //
+%t-properties {
+	padding: ($line_height / 2) ($gutter / 2);
+}
+
+// -------------------------- //
+//			Rules
+// -------------------------- //
+table {
+	width: 100%;
+
+	border: 1px solid darken($color_background, 6);
+	border-collapse: collapse;
+	background-color: $color_background;
+
+	@include box-shadow(darken($color_background, 7) 0px 1px);
+
+	caption {
+		margin-bottom: $line_height / 2;
+		color: $color_header;
+	}
+
+	th, tr, td {
+		@extend %t-properties;
+
+		border: 1px solid darken($color_background,  9);
+	}
+
+	th {
+		text-align: center;
+
+		background-color: darken($color_background, 9);
+		border: 1px solid darken($color_background,  15);
+	}
+}
