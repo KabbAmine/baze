@@ -19,7 +19,7 @@ body {
 		margin-bottom: $line_height; // À ENLEVER SI NÉCÉSSAIRE
 	}
 
-	// max-width: $width;
+	max-width: 100%;
 	margin: ($gutter / 2) auto;
 	padding: 0 ($gutter / 2); // À ENLEVER
 	line-height: $line_height;
