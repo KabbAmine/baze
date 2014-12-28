@@ -1,0 +1,200 @@
+/* -------------------------- *\
+ *			Glass
+\* -------------------------- */
+
+// -------------------------- //
+//			Variables
+// -------------------------- //
+
+$m_medium: $m_medium!default;
+$m_large: $m_large!default;
+
+$m_glass_gutter: $gutter!default;
+$m_glass_line_height: $line_height!default;
+
+$m_glass_font_title: $font_header!default;
+$m_glass_font_description: $font_family!default;
+
+$m_glass_color: $color_primary!default;
+$m_glass_color_text: lighten($color_primary, 50)!default;
+$m_glass_color_background: $color_header!default;
+
+$m_glass_img_width: 250px!default;
+
+// -------------------------- //
+//			Extends
+// -------------------------- //
+
+%glass {
+	display: inline-block;
+	max-width: $m_glass_img_width;
+	max-height: $m_glass_img_width;
+	margin-bottom: $m_glass_line_height;
+	overflow: hidden;
+	z-index: 1;
+
+	@include transition-duration(0.5s);
+}
+%glass-hover {
+	z-index: 10;
+
+	@include box-shadow(rgba($m_glass_color_background, 0.5) 2px 3px 3px);
+	@include apply-origin(0 0 0, false);
+	@include scale(1.2);
+}
+
+%glass-container {
+	position: relative;
+	height: $m_glass_img_width;
+}
+
+%glass-image {
+	background-color: $m_glass_color_background;
+	& > img { @extend %glass-image-img; }
+}
+%glass-image-img {
+	margin-bottom: 0;
+	opacity: 0.4;
+
+	@include transition-duration(0.5s);
+}
+%glass-image-hover {
+	background-color: none;
+	& > img { @extend %glass-image-img-hover; }
+}
+%glass-image-img-hover {
+	opacity: 1;
+}
+
+%glass-content {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: $m_glass_line_height;
+	padding: $m_glass_line_height ($gutter / 2);
+
+	& :last-child { margin-bottom: 0; }
+	* {
+		line-height: $m_glass_line_height;
+		text-align: center;
+	}
+
+	& > h1 { @extend %glass-content-title; }
+	& > p { @extend %glass-content-description; }
+}
+%glass-content-hover {
+
+	& > h1 { @extend %glass-content-title-hover; }
+	& > p { @extend %glass-content-description-hover; }
+}
+%glass-content-title {
+	margin-top: 25%;
+	margin-left: $gutter / -2;
+	margin-right: $gutter / -2;
+	padding: ($m_glass_line_height / 2) 0;
+
+	font-size: 0.9em;
+	font-family: $m_glass_font_title;
+
+	color: $m_glass_color_text;
+	background-color: rgba($m_glass_color,  0.7);
+
+	@include transition(margin-top 0.3s ease-out);
+}
+%glass-content-title-hover {
+	margin-top: -$m_glass_line_height;
+	opacity: 1;
+}
+%glass-content-description {
+	margin: 100% ($gutter / -2) 0 ($gutter / -2);
+	padding: ($m_glass_line_height / 2) ($gutter /  2);
+
+	font-family: $m_glass_font_description;
+	font-size: 0.7em;
+
+	background-color: rgba($m_glass_color_background, 0.7);
+
+	@include transition-duration(0.7s);
+}
+%glass-content-description-hover {
+	margin-top: 0;
+	color: $m_glass_color_text;
+}
+
+%glass-link {
+	position: relative;
+	bottom: $m_glass_line_height * 2;
+	margin-top: 25%;
+	text-align: center;
+
+	font-family: $m_glass_font_title;
+	font-size: 0.7em;
+
+	a {
+		color: $m_glass_color_text;
+		opacity: 0.6;
+
+		&:hover {
+			color: $m_glass_color_text;
+			opacity: 1;
+		}
+	}
+
+	@include transition(margin-top 0.5s ease-out);
+}	
+%glass-link-hover { margin-top: 0; }
+
+// -------------------------- //
+//			Mixins
+// -------------------------- //
+
+@mixin setGlass() {
+
+	.glass {
+		@extend %glass;
+
+		& > .glass-container {
+			@extend %glass-container;
+
+			& > .glass-image {
+				@extend %glass-image;
+			}
+
+			& > .glass-content {
+				@extend %glass-content;
+			}
+
+			& > .glass-link {
+				@extend %glass-link;
+			}
+
+		}
+
+		&:hover {
+			@extend %glass-hover;
+
+			& > .glass-container {
+
+				& > .glass-image {
+					@extend %glass-image-hover;
+				}
+
+				& > .glass-content {
+					@extend %glass-content-hover;
+				}
+
+				& > .glass-link {
+					@extend %glass-link-hover;
+				}
+			}
+		}
+	}
+}
+
+// -------------------------- //
+//			Rules
+// -------------------------- //
+
+@include setGlass();
+

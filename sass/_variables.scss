@@ -35,11 +35,11 @@ $color_background: #f3f3f3!default;
 $l_medium: 640px!default;
 $l_large: 1040px!default;
 
-// Grid ----- OK
+// Grid
 $l_grid_gutter: $gutter;
 $l_grid_number_columns: 12!default;
 
-// Box ----- OK
+// Box
 $l_box_gutter: $gutter!default;
 $l_box_line_height: $line_height!default;
 
@@ -53,7 +53,7 @@ $l_box_border_title: $color_primary!default;
 $m_medium: $l_medium!default;
 $m_large: $l_large!default;
 
-// Buttons ----- OK
+// Buttons
 $m_btn_line_height: $line_height!default;
 $m_btn_gutter: $gutter!default;
 
@@ -64,7 +64,7 @@ $m_btn_color_error: #e14e3f!default;
 $m_btn_color_warning: #ebbf0f!default;
 $m_btn_color_dark: #31414f!default;
 
-// Bubble ----- OK
+// Bubble
 $m_bubble_gutter: $gutter!default;
 
 $m_bubble_color: $color_primary!default;
@@ -76,7 +76,7 @@ $m_bubble_width: 200px!default;
 $m_bubble_slider_height: 3!default;
 $m_bubble_slider_margin: 99%!default;
 
-// Alert ----- OK
+// Alert
 $m_alert_gutter: $gutter!default;
 $m_alert_line_height: $line_height!default;
 
@@ -89,3 +89,15 @@ $m_alert_error_color: #e14e3f!default;
 $m_alert_warning_color: #ebbf0f!default;
 $m_alert_question_color: #33cd74!default;
 
+// Glass
+$m_glass_gutter: $gutter!default;
+$m_glass_line_height: $line_height!default;
+
+$m_glass_font_title: $font_header!default;
+$m_glass_font_description: $font_family!default;
+
+$m_glass_color: $color_primary!default;
+$m_glass_color_text: lighten($color_primary, 50)!default;
+$m_glass_color_background: $color_header!default;
+
+$m_glass_img_width: 250px!default;
