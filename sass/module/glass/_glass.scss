@@ -63,7 +63,7 @@ $m_glass_img_width: 250px!default;
 	& > img { @extend %glass-image-img-hover; }
 }
 %glass-image-img-hover {
-	opacity: 1;
+	opacity: 0.8;
 }
 
 %glass-content {
@@ -98,12 +98,14 @@ $m_glass_img_width: 250px!default;
 	font-family: $m_glass_font_title;
 
 	color: $m_glass_color_text;
-	background-color: rgba($m_glass_color,  0.7);
+	background-color: rgba($m_glass_color,  0.8);
 
 	@include transition(margin-top 0.3s ease-out);
 }
 %glass-content-title-hover {
 	margin-top: -$m_glass_line_height;
+
+	background-color: $m_glass_color;
 	opacity: 1;
 }
 %glass-content-description {
@@ -111,9 +113,9 @@ $m_glass_img_width: 250px!default;
 	padding: ($m_glass_line_height / 2) ($gutter /  2);
 
 	font-family: $m_glass_font_description;
-	font-size: 0.7em;
+	font-size: 0.8em;
 
-	background-color: rgba($m_glass_color_background, 0.7);
+	background-color: rgba($m_glass_color_background, 0.9);
 
 	@include transition-duration(0.7s);
 }
