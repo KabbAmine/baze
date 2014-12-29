@@ -1547,12 +1547,14 @@ ul.bubble-img-l2 {
  *			Glass
 \* -------------------------- */
 .glass {
+  position: relative;
   display: inline-block;
   max-width: 250px;
   max-height: 250px;
   margin-bottom: 22.4px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 0;
+  border: 1px solid rgba(62, 62, 62, 0.3);
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
@@ -1560,9 +1562,6 @@ ul.bubble-img-l2 {
 
 .glass:hover {
   z-index: 10;
-  -moz-box-shadow: rgba(62, 62, 62, 0.5) 2px 3px 3px;
-  -webkit-box-shadow: rgba(62, 62, 62, 0.5) 2px 3px 3px;
-  box-shadow: rgba(62, 62, 62, 0.5) 2px 3px 3px;
   -moz-transform-origin: 0 0 0;
   -webkit-transform-origin: 0 0 0;
   transform-origin: 0 0 0;
@@ -1614,13 +1613,13 @@ ul.bubble-img-l2 {
   font-family: "Bitter", serif;
   color: white;
   background-color: rgba(217, 166, 55, 0.8);
-  -moz-transition: margin-top 0.3s ease-out;
-  -o-transition: margin-top 0.3s ease-out;
-  -webkit-transition: margin-top 0.3s ease-out;
-  transition: margin-top 0.3s ease-out; }
+  -moz-transition: margin-top 0.7s ease-out;
+  -o-transition: margin-top 0.7s ease-out;
+  -webkit-transition: margin-top 0.7s ease-out;
+  transition: margin-top 0.7s ease-out; }
 
 .glass:hover > .glass-container > .glass-content > h1 {
-  margin-top: -22.4px;
+  margin-top: -40%;
   background-color: #d9a637;
   opacity: 1; }
 
@@ -1630,13 +1629,14 @@ ul.bubble-img-l2 {
   font-family: "Lato", sans-serif;
   font-size: 0.8em;
   background-color: rgba(62, 62, 62, 0.9);
+  border-bottom: 2px solid #d9a637;
   -moz-transition-duration: 0.7s;
   -o-transition-duration: 0.7s;
   -webkit-transition-duration: 0.7s;
   transition-duration: 0.7s; }
 
 .glass:hover > .glass-container > .glass-content > p {
-  margin-top: 0;
+  margin-top: 40%;
   color: white; }
 
 .glass > .glass-container > .glass-link {
@@ -1646,10 +1646,10 @@ ul.bubble-img-l2 {
   text-align: center;
   font-family: "Bitter", serif;
   font-size: 0.7em;
-  -moz-transition: margin-top 0.5s ease-out;
-  -o-transition: margin-top 0.5s ease-out;
-  -webkit-transition: margin-top 0.5s ease-out;
-  transition: margin-top 0.5s ease-out; }
+  -moz-transition: margin-top 0.7s ease-out;
+  -o-transition: margin-top 0.7s ease-out;
+  -webkit-transition: margin-top 0.7s ease-out;
+  transition: margin-top 0.7s ease-out; }
   .glass > .glass-container > .glass-link a {
     color: white;
     opacity: 0.6; }

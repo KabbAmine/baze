@@ -26,19 +26,21 @@ $m_glass_img_width: 250px!default;
 // -------------------------- //
 
 %glass {
+	position: relative;
 	display: inline-block;
 	max-width: $m_glass_img_width;
 	max-height: $m_glass_img_width;
 	margin-bottom: $m_glass_line_height;
 	overflow: hidden;
-	z-index: 1;
+	z-index: 0;
+
+	border: 1px solid rgba($m_glass_color_background, 0.3);
 
 	@include transition-duration(0.5s);
 }
 %glass-hover {
 	z-index: 10;
 
-	@include box-shadow(rgba($m_glass_color_background, 0.5) 2px 3px 3px);
 	@include apply-origin(0 0 0, false);
 	@include scale(1.2);
 }
@@ -100,10 +102,10 @@ $m_glass_img_width: 250px!default;
 	color: $m_glass_color_text;
 	background-color: rgba($m_glass_color,  0.8);
 
-	@include transition(margin-top 0.3s ease-out);
+	@include transition(margin-top 0.7s ease-out);
 }
 %glass-content-title-hover {
-	margin-top: -$m_glass_line_height;
+	margin-top: -40%;
 
 	background-color: $m_glass_color;
 	opacity: 1;
@@ -116,11 +118,12 @@ $m_glass_img_width: 250px!default;
 	font-size: 0.8em;
 
 	background-color: rgba($m_glass_color_background, 0.9);
+	border-bottom: 2px solid $m_glass_color;
 
 	@include transition-duration(0.7s);
 }
 %glass-content-description-hover {
-	margin-top: 0;
+	margin-top: 40%;
 	color: $m_glass_color_text;
 }
 
@@ -143,7 +146,7 @@ $m_glass_img_width: 250px!default;
 		}
 	}
 
-	@include transition(margin-top 0.5s ease-out);
+	@include transition(margin-top 0.7s ease-out);
 }	
 %glass-link-hover { margin-top: 0; }
 
