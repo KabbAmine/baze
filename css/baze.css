@@ -1560,16 +1560,16 @@ ul.bubble-img-l2 {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
-.glass:hover {
-  z-index: 10;
-  -moz-transform-origin: 0 0 0;
-  -webkit-transform-origin: 0 0 0;
-  transform-origin: 0 0 0;
-  -moz-transform: scale(1.2, 1.2);
-  -ms-transform: scale(1.2, 1.2);
-  -webkit-transform: scale(1.2, 1.2);
-  transform: scale(1.2, 1.2); }
-
+@media only screen and (min-width: 1040px) {
+  .glass:hover {
+    z-index: 10;
+    -moz-transform-origin: 0 0 0;
+    -webkit-transform-origin: 0 0 0;
+    transform-origin: 0 0 0;
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2); } }
 .glass > .glass-container {
   position: relative;
   height: 250px; }
@@ -1585,12 +1585,12 @@ ul.bubble-img-l2 {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
-.glass:hover > .glass-container > .glass-image {
-  background-color: none; }
+@media only screen and (min-width: 1040px) {
+  .glass:hover > .glass-container > .glass-image {
+    background-color: none; }
 
-.glass:hover > .glass-container > .glass-image > img {
-  opacity: 0.8; }
-
+  .glass:hover > .glass-container > .glass-image > img {
+    opacity: 0.8; } }
 .glass > .glass-container > .glass-content {
   width: 100%;
   position: absolute;
@@ -1618,11 +1618,11 @@ ul.bubble-img-l2 {
   -webkit-transition: margin-top 0.7s ease-out;
   transition: margin-top 0.7s ease-out; }
 
-.glass:hover > .glass-container > .glass-content > h1 {
-  margin-top: -40%;
-  background-color: #d9a637;
-  opacity: 1; }
-
+@media only screen and (min-width: 1040px) {
+  .glass:hover > .glass-container > .glass-content > h1 {
+    margin-top: -40%;
+    background-color: #d9a637;
+    opacity: 1; } }
 .glass > .glass-container > .glass-content > p {
   margin: 100% -10px 0 -10px;
   padding: 11.2px 10px;
@@ -1635,14 +1635,13 @@ ul.bubble-img-l2 {
   -webkit-transition-duration: 0.7s;
   transition-duration: 0.7s; }
 
-.glass:hover > .glass-container > .glass-content > p {
-  margin-top: 40%;
-  color: white; }
-
+@media only screen and (min-width: 1040px) {
+  .glass:hover > .glass-container > .glass-content > p {
+    margin-top: 40%;
+    color: white; } }
 .glass > .glass-container > .glass-link {
   position: relative;
   bottom: 44.8px;
-  margin-top: 25%;
   text-align: center;
   font-family: "Bitter", serif;
   font-size: 0.7em;
@@ -1657,5 +1656,9 @@ ul.bubble-img-l2 {
       color: white;
       opacity: 1; }
 
-.glass:hover > .glass-container > .glass-link {
-  margin-top: 0; }
+@media only screen and (min-width: 1040px) {
+  .glass > .glass-container > .glass-link {
+    margin-top: 25%; }
+
+  .glass:hover > .glass-container > .glass-link {
+    margin-top: 0; } }

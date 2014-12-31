@@ -38,11 +38,13 @@ $m_glass_img_width: 250px!default;
 
 	@include transition-duration(0.5s);
 }
-%glass-hover {
-	z-index: 10;
+@media only screen and (min-width: $l_large) {
+	%glass-hover {
+		z-index: 10;
 
-	@include apply-origin(0 0 0, false);
-	@include scale(1.2);
+		@include apply-origin(0 0 0, false);
+		@include scale(1.2);
+	}
 }
 
 %glass-container {
@@ -60,12 +62,14 @@ $m_glass_img_width: 250px!default;
 
 	@include transition-duration(0.5s);
 }
-%glass-image-hover {
-	background-color: none;
-	& > img { @extend %glass-image-img-hover; }
-}
-%glass-image-img-hover {
-	opacity: 0.8;
+@media only screen and (min-width: $l_large) {
+	%glass-image-hover {
+		background-color: none;
+		& > img { @extend %glass-image-img-hover; }
+	}
+	%glass-image-img-hover {
+		opacity: 0.8;
+	}
 }
 
 %glass-content {
@@ -85,10 +89,12 @@ $m_glass_img_width: 250px!default;
 	& > h1 { @extend %glass-content-title; }
 	& > p { @extend %glass-content-description; }
 }
-%glass-content-hover {
+@media only screen and (min-width: $l_large) {
+	%glass-content-hover {
 
-	& > h1 { @extend %glass-content-title-hover; }
-	& > p { @extend %glass-content-description-hover; }
+		& > h1 { @extend %glass-content-title-hover; }
+		& > p { @extend %glass-content-description-hover; }
+	}
 }
 %glass-content-title {
 	margin-top: 25%;
@@ -104,11 +110,13 @@ $m_glass_img_width: 250px!default;
 
 	@include transition(margin-top 0.7s ease-out);
 }
-%glass-content-title-hover {
-	margin-top: -40%;
+@media only screen and (min-width: $l_large) {
+	%glass-content-title-hover {
+		margin-top: -40%;
 
-	background-color: $m_glass_color;
-	opacity: 1;
+		background-color: $m_glass_color;
+		opacity: 1;
+	}
 }
 %glass-content-description {
 	margin: 100% ($gutter / -2) 0 ($gutter / -2);
@@ -122,15 +130,16 @@ $m_glass_img_width: 250px!default;
 
 	@include transition-duration(0.7s);
 }
-%glass-content-description-hover {
-	margin-top: 40%;
-	color: $m_glass_color_text;
+@media only screen and (min-width: $l_large) {
+	%glass-content-description-hover {
+		margin-top: 40%;
+		color: $m_glass_color_text;
+	}
 }
 
 %glass-link {
 	position: relative;
 	bottom: $m_glass_line_height * 2;
-	margin-top: 25%;
 	text-align: center;
 
 	font-family: $m_glass_font_title;
@@ -148,7 +157,10 @@ $m_glass_img_width: 250px!default;
 
 	@include transition(margin-top 0.7s ease-out);
 }	
-%glass-link-hover { margin-top: 0; }
+@media only screen and (min-width: $l_large) {
+	%glass-link { margin-top: 25%; }
+	%glass-link-hover { margin-top: 0; }
+}
 
 // -------------------------- //
 //			Mixins
@@ -202,4 +214,3 @@ $m_glass_img_width: 250px!default;
 // -------------------------- //
 
 @include setGlass();
-
