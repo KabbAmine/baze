@@ -38,14 +38,6 @@ $m_glass_img_width: 250px!default;
 
 	@include transition-duration(0.5s);
 }
-@media only screen and (min-width: $l_large) {
-	%glass-hover {
-		z-index: 10;
-
-		@include apply-origin(0 0 0, false);
-		@include scale(1.2);
-	}
-}
 
 %glass-container {
 	position: relative;
@@ -61,15 +53,6 @@ $m_glass_img_width: 250px!default;
 	opacity: 0.4;
 
 	@include transition-duration(0.5s);
-}
-@media only screen and (min-width: $l_large) {
-	%glass-image-hover {
-		background-color: none;
-		& > img { @extend %glass-image-img-hover; }
-	}
-	%glass-image-img-hover {
-		opacity: 0.8;
-	}
 }
 
 %glass-content {
@@ -89,13 +72,6 @@ $m_glass_img_width: 250px!default;
 	& > h1 { @extend %glass-content-title; }
 	& > p { @extend %glass-content-description; }
 }
-@media only screen and (min-width: $l_large) {
-	%glass-content-hover {
-
-		& > h1 { @extend %glass-content-title-hover; }
-		& > p { @extend %glass-content-description-hover; }
-	}
-}
 %glass-content-title {
 	margin-top: 25%;
 	margin-left: $gutter / -2;
@@ -110,14 +86,6 @@ $m_glass_img_width: 250px!default;
 
 	@include transition(margin-top 0.7s ease-out);
 }
-@media only screen and (min-width: $l_large) {
-	%glass-content-title-hover {
-		margin-top: -40%;
-
-		background-color: $m_glass_color;
-		opacity: 1;
-	}
-}
 %glass-content-description {
 	margin: 100% ($gutter / -2) 0 ($gutter / -2);
 	padding: ($m_glass_line_height / 2) ($gutter /  2);
@@ -129,12 +97,6 @@ $m_glass_img_width: 250px!default;
 	border-bottom: 2px solid $m_glass_color;
 
 	@include transition-duration(0.7s);
-}
-@media only screen and (min-width: $l_large) {
-	%glass-content-description-hover {
-		margin-top: 40%;
-		color: $m_glass_color_text;
-	}
 }
 
 %glass-link {
@@ -156,8 +118,42 @@ $m_glass_img_width: 250px!default;
 	}
 
 	@include transition(margin-top 0.7s ease-out);
-}	
+}
+
+// Responsive.
 @media only screen and (min-width: $l_large) {
+
+	%glass-hover {
+		z-index: 10;
+
+		@include apply-origin(0 0 0, false);
+		@include scale(1.2);
+	}
+
+	%glass-image-hover {
+		background-color: none;
+		& > img { @extend %glass-image-img-hover; }
+	}
+	%glass-image-img-hover {
+		opacity: 0.8;
+	}
+
+	%glass-content-hover {
+
+		& > h1 { @extend %glass-content-title-hover; }
+		& > p { @extend %glass-content-description-hover; }
+	}
+	%glass-content-title-hover {
+		margin-top: -40%;
+
+		background-color: $m_glass_color;
+		opacity: 1;
+	}
+	%glass-content-description-hover {
+		margin-top: 40%;
+		color: $m_glass_color_text;
+	}
+
 	%glass-link { margin-top: 25%; }
 	%glass-link-hover { margin-top: 0; }
 }
