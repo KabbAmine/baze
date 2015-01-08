@@ -16,12 +16,12 @@
 body {
 	* {
 		@include box-sizing(border-box);
-		margin-bottom: $line_height; // À ENLEVER SI NÉCÉSSAIRE
+		margin-bottom: $line_height;
 	}
 
 	max-width: 100%;
 	margin: ($gutter / 2) auto;
-	padding: 0 ($gutter / 2); // À ENLEVER
+	padding: 0 ($body_gutter / 2);
 	line-height: $line_height;
 
 	font-family: $font_family;
